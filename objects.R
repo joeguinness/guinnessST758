@@ -41,7 +41,6 @@ NA_real_
 NA_complex_
 NA_character_
 
-
 # the mode() function and storage.mode() functions
 # do something similar, but not quite the same
 # (R has some legacy functions)
@@ -111,7 +110,7 @@ heights_list[2]            # this returns a list of length one
 heights_list[[2]]          # double brackets returns the contents of the entry
 heights_list["jenny"]      # can use the names also
 heights_list[["jenny"]]
-heights_list$evan          # the $ operator does not use quotes
+heights_list$"evan"          # the $ operator may use quotes
 
 
 # entries of a list can be of any type, even another list!
@@ -195,6 +194,7 @@ attr(heights,"units") <- "centimeters"
 is.vector(heights)
 attributes(heights)
 attr(heights,"date measured") <- "July 30, 2016"
+attr(heights,"date measured") <- 7
 attributes(heights)
 heights_bak <- heights                     # make a backup so we can restore
 attributes(heights) <- NULL
@@ -217,9 +217,9 @@ is.atomic(vec_fac)
 is.factor(vec_fac)
 otherfac <- as.factor(c(1,3,4))         # coerce with as.factor
 levels(otherfac)                        # check levels with levels()
-levels(othervec) <- c(1,2,3,4)          # also use to assign
+levels(otherfac) <- c(1,2,3,4)          # also use to assign
 
-# the above is the first instance of an assignment function
+# the above an instance of an assignment function
 # note that the assignment lines do not quite fit the syntax
 # that we've been using so far. We'll cover this more later
 
