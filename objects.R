@@ -275,6 +275,10 @@ as.matrix(1:4)
 # there are also n-dimensional arrays. initialize with array()
 ?array
 array(0,c(2,2,3))
+arr1 <- array(1:12,c(2,2,3))
+arr1[1,1,1]
+arr1[6]
+
 
 # a two-dimensional array IS A MATRIX, can do matrix multiplication 
 identical( matrix(0,2,2), array(0,c(2,2)) )
@@ -301,5 +305,3 @@ fruit_data[3,1]           # see that characters are coerced to factors by defaul
 # which returns the atomic vecotr, which in turn can be subset
 fruit_data$fruit
 fruit_data$fruit[3]
-
-
