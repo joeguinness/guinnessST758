@@ -69,6 +69,7 @@ plot(1:10,10:1,cex=4,pch=16,type="o",ylim=c(0,11),lwd=3)
 plot(1:10,10:1,axes=FALSE,type="l",pch="P",
      xlab=expression(sqrt(pi)))
 
+
 # we can also create an empty plot and build it up how we like
 plot(1:10,10:1,type="n",axes=FALSE,ann=FALSE,
      xlim=c(0,10),ylim=c(0,10))
@@ -95,7 +96,7 @@ box()   # beautiful
 plot(rep(1:5,2),rep(1:5,2)+rep(c(0,4),each=5),
      pch=c(rep(0,5),rep(1,5)),ylim=c(0,12))
 legend(x=1,y=10,c("Raleigh","Durham"),pch=c(1,0),
-       text.width=0.55)
+       text.width=0.9)
 
 
 # adding annotations to plots can also be done with the text() function
@@ -104,13 +105,13 @@ plot(rep(1:5,2),rep(1:5,2)+rep(c(0,4),each=5),
 points(c(1.2,1.2),c(9,10),pch=c(0,1))
 text(1.2,9,"Durham",pos=4)
 text(1.2,10,"Raleigh",pos=4)
-rect(1,8.2,2,10.8)
+rect(1,8.2,2.4,10.8)
 
 
 # setting setting margins can be frustrating, especially when 
 # working with several plots within the same graphics device
 
-par(oma=c(2, 2, 2, 2), mar=c(4, 4, 2, 2))
+par(oma=c(4, 2, 2, 0), mar=c(0, 4, 2, 0))
 set.seed(1)
 plot(rnorm(10), xlab="x label", ylab="y label")
 box("outer", col="red", lwd=2)
@@ -138,15 +139,17 @@ box("plot", col="blue")
 text(5, 0, "plot region", col="blue")
 
 
-
 # we can automatically set up grids of plots with the 
 # mfrow tag
+dev.off()   # reset all graphical parameters
 par(mfrow=c(2,3),oma=c(0,0,0,0))  # 2x3 grid of plots
 for(j in 1:6) plot(0,type="n",main=paste("Position",j))
+
 
 # mfcol plots them in column major ordering
 par(mfcol=c(2,3),oma=c(0,0,0,0))  # 2x3 grid of plots 
 for(j in 1:6) plot(0,type="n",main=paste("Position",j))
+
 
 # if we make a new plot it will cycle back to the 
 # first and replace it
